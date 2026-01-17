@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  voice-ai-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: voice-ai-classifier:latest
+    container_name: voice-ai-intent-classifier
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # Mount model directory for updates without rebuild
+      - ./outputs/models:/app/outputs/models:ro
+      # Mount config for runtime configuration changes
+      - ./configs:/app/configs:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s

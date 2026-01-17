@@ -1,0 +1,80 @@
+# Voice AI Intent Classifier Configuration
+
+# Data paths
+data:
+  train_path: "datasets/voiceai_intent_train.csv"
+  val_path: "datasets/voiceai_intent_val.csv"
+  test_path: "datasets/voiceai_intent_test.csv"
+  full_dataset_path: "datasets/voiceai_intent_dataset.csv"
+
+# Model configuration
+model:
+  name: "xlm-roberta-base"
+  num_labels: 13
+  max_length: 128
+  dropout: 0.1
+
+# Training hyperparameters
+training:
+  batch_size: 8              # Reduced for CPU training (default: 16 for GPU)
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  num_epochs: 3              # Reduced for faster iteration (default: 10)
+  warmup_ratio: 0.1
+  gradient_accumulation_steps: 2  # Compensates for smaller batch size
+  early_stopping_patience: 2      # Faster early stopping
+  
+# Focal Loss parameters
+focal_loss:
+  gamma: 2.0
+  alpha: null  # null for balanced, or list of class weights
+
+# Inference settings
+inference:
+  confidence_thresholds:
+    high: 0.85      # Auto-execute intent
+    medium: 0.60    # Ask user to confirm
+    # Below 0.60: Escalate to human agent
+  batch_size: 32
+
+# Intent labels (for reference)
+intents:
+  - check_application_status
+  - start_new_application
+  - requirements_information
+  - fees_information
+  - appointment_booking
+  - payment_help
+  - reset_password_login_help
+  - speak_to_agent
+  - cancel_or_reschedule_appointment
+  - update_application_details
+  - document_upload_help
+  - service_eligibility
+  - complaint_or_support_ticket
+
+# Preprocessing settings
+preprocessing:
+  normalize_unicode: true
+  fix_repeated_chars: true
+  min_repeat_chars: 3  # "helllp" -> "help" if 3+ repeats
+  lowercase: false     # Keep case for XLM-RoBERTa
+  preserve_code_switching: true
+
+# Evaluation settings
+evaluation:
+  metrics:
+    - macro_f1
+    - weighted_f1
+    - accuracy
+    - per_class_f1
+  stratify_by:
+    - language
+    - region
+    - channel
+
+# Output directories
+output:
+  model_dir: "outputs/models"
+  logs_dir: "outputs/logs"
+  plots_dir: "outputs/plots"

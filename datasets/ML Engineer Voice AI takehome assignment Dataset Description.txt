@@ -1,0 +1,34 @@
+ML Engineer Voice AI takehome assignment Dataset Description
+Columns:
+utterance_id, timestamp, channel, device_type, region
+
+
+language (rw, en, mixed)
+
+
+utterance_text (includes realistic noise + code-switching)
+
+
+asr_confidence, duration_seconds
+
+
+intent (label; includes ~3% label noise to mimic real data)
+
+
+split (train, val, test)
+
+
+Intents included (13):
+
+
+check_application_status, 
+start_new_application, 
+requirements_information, 
+fees_information, appointment_booking,
+ payment_help, reset_password_login_help, 
+speak_to_agent, 
+cancel_or_reschedule_appointment, 
+update_application_details, 
+document_upload_help, service_eligibility, 
+complaint_or_support_ticket
+

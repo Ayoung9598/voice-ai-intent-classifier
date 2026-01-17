@@ -1,0 +1,52 @@
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Large model files
+outputs/models/best_model.pt
+outputs/models/*.pt
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# All README files (keep locally, don't push)
+**/README.md
+
+# Assignment file (don't share the prompt)
+ML_Take_Home.txt
+
+# Draft documents (keep only final PDF)
+docs/
+docs/SUBMISSION.md
+docs/SUBMISSION_4PAGE.md
+docs/requirements_analysis.md
+
+# Colab zip
+voice-ai-colab.zip
+
+# Logs (not needed for review)
+outputs/logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment files
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Docker ignore file (internal)
+.dockerignore
