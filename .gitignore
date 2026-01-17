@@ -13,22 +13,14 @@ __pycache__/
 *$py.class
 *.so
 
-# All README files (keep locally, don't push)
 **/README.md
 
-# Assignment file (don't share the prompt)
 ML_Take_Home.txt
 
-# Draft documents (keep only final PDF)
 docs/
-docs/SUBMISSION.md
-docs/SUBMISSION_4PAGE.md
-docs/requirements_analysis.md
 
-# Colab zip
-voice-ai-colab.zip
 
-# Logs (not needed for review)
+# Logs
 outputs/logs/
 
 # IDE
