@@ -16,13 +16,13 @@ model:
 
 # Training hyperparameters
 training:
-  batch_size: 8              # Reduced for CPU training (default: 16 for GPU)
+  batch_size: 16             # Use 8 for CPU, 16+ for GPU
   learning_rate: 2.0e-5
   weight_decay: 0.01
-  num_epochs: 3              # Reduced for faster iteration (default: 10)
+  num_epochs: 10             # Full training (use 3 for quick testing)
   warmup_ratio: 0.1
-  gradient_accumulation_steps: 2  # Compensates for smaller batch size
-  early_stopping_patience: 2      # Faster early stopping
+  gradient_accumulation_steps: 1  # Increase to 2-4 for smaller batch sizes
+  early_stopping_patience: 3      # Stops if no improvement for 3 epochs
   
 # Focal Loss parameters
 focal_loss:
