@@ -35,7 +35,7 @@
     "split": "Pre-defined split: train / val / test."
   },
   "notes": [
-    "This is a synthetic dataset intended for take-home assessments; it is not based on real citizen data.",
+    "This is a synthetic dataset; it is not based on real citizen data.",
     "Utterances include code-switching (Kinyarwanda/English/French terms), slang, and ASR-like noise.",
     "Class distribution is mildly imbalanced to reflect real traffic patterns.",
     "Label noise (~3%) is included to encourage robust evaluation and error analysis."

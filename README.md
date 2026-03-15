@@ -20,7 +20,7 @@ This system classifies user intents from transcribed speech to enable natural-la
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/Ayoung9598/voice-ai-intent-classifier.git
 cd voice-ai
 
 # Create virtual environment
