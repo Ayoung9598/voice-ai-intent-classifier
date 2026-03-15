@@ -4,7 +4,7 @@ A multilingual intent classifier for Rwanda's Voice AI assistant, handling Kinya
 
 ## Project Overview
 
-This solution addresses the ML Take-Home Assignment for the Machine Learning Engineer - Voice AI position. The system classifies user intents from transcribed speech to enable natural-language voice interactions with government services.
+This system classifies user intents from transcribed speech to enable natural-language voice interactions with government services.
 
 ### Key Features
 
@@ -185,8 +185,8 @@ inference:
 
 ## License
 
-This project is part of a take-home assessment and is not licensed for public use.
+MIT License
 
 ## Author
 
-Machine Learning Engineer Candidate
+Ayomide Abiola
