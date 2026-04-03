@@ -1,11 +1,19 @@
 # Voice AI Intent Classifier Configuration
 
 # Data paths
+# Original Rwanda dataset (commented out - uncomment to switch back)
+# data:
+#   train_path: "datasets/voiceai_intent_train.csv"
+#   val_path: "datasets/voiceai_intent_val.csv"
+#   test_path: "datasets/voiceai_intent_test.csv"
+#   full_dataset_path: "datasets/voiceai_intent_dataset.csv"
+
+# Nigerian dataset (default)
 data:
-  train_path: "datasets/voiceai_intent_train.csv"
-  val_path: "datasets/voiceai_intent_val.csv"
-  test_path: "datasets/voiceai_intent_test.csv"
-  full_dataset_path: "datasets/voiceai_intent_dataset.csv"
+  train_path: "datasets/voiceai_intent_nigerian_train.csv"
+  val_path: "datasets/voiceai_intent_nigerian_val.csv"
+  test_path: "datasets/voiceai_intent_nigerian_test.csv"
+  full_dataset_path: "datasets/voiceai_intent_nigerian_dataset.csv"
 
 # Model configuration
 model:
@@ -19,10 +27,10 @@ training:
   batch_size: 16             # Use 8 for CPU, 16+ for GPU
   learning_rate: 2.0e-5
   weight_decay: 0.01
-  num_epochs: 10             # Full training (use 3 for quick testing)
+  num_epochs: 7             # Full training (use 3 for quick testing)
   warmup_ratio: 0.1
   gradient_accumulation_steps: 1  # Increase to 2-4 for smaller batch sizes
-  early_stopping_patience: 3      # Stops if no improvement for 3 epochs
+  early_stopping_patience: 2      # Stops if no improvement for 2 epochs
   
 # Focal Loss parameters
 focal_loss:

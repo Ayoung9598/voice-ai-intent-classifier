@@ -1,170 +1,160 @@
-# Voice AI Intent Classification System
+# Voice AI Intent Classifier
 
-A multilingual intent classifier for Rwanda's Voice AI assistant, handling Kinyarwanda, English, and mixed-language (code-switching) utterances from voice transcripts.
+A production-style **multilingual intent classification** pipeline for voice-assistant use cases: it takes **ASR text** (transcripts) and predicts one of **13 service intents**, with **confidence-based routing** (execute / confirm / escalate). Built to handle **English**, **code-switching**, and an African language track, **Yoruba** (Nigerian locale) or **Kinyarwanda** (Rwanda locale), depending on which dataset is active in config.
 
-## Project Overview
+**Why it matters:** Voice channels (IVR, WhatsApp voice notes, call centers) need reliable intent detection across how people *actually* speak, not only clean textbook English.
 
-This system classifies user intents from transcribed speech to enable natural-language voice interactions with government services.
+## What’s in this repo
 
-### Key Features
+| Piece | Description |
+|--------|-------------|
+| **Model** | Fine-tuned **XLM-RoBERTa** (full encoder + classification head) |
+| **Loss** | **Focal loss** for class imbalance and noisy labels |
+| **Inference** | `IntentPredictor` + **confidence thresholds** for safe automation |
+| **API** | **FastAPI** server for `/predict` and health checks |
+| **Notebooks** | EDA → training → evaluation & error analysis |
 
-- **Multilingual Support**: Handles Kinyarwanda, English, and code-switching
-- **XLM-RoBERTa Model**: Fine-tuned multilingual transformer for robust classification
-- **Focal Loss**: Handles class imbalance and label noise (~3%)
-- **Confidence-Based Fallback**: Three-tier system (execute/confirm/escalate)
-- **Production-Ready API**: FastAPI endpoint for real-time inference
+## Datasets (switch in config)
 
-## Quick Start
+The project ships with **two synthetic intent datasets** (same 13 intents, similar schema: channel, device, region, language, utterance text, ASR confidence, etc.):
+
+| Dataset | Languages (typical) | CSV prefix | Default? |
+|---------|---------------------|------------|----------|
+| **Nigerian** | English, Yoruba, mixed | `voiceai_intent_nigerian_*.csv` | **Yes** — active in `configs/config.yaml` |
+| **Rwanda** | English, Kinyarwanda (`rw`), mixed | `voiceai_intent_*.csv` | Optional — paths are commented in the same file |
+
+To use Rwanda again, comment the Nigerian `data:` block and uncomment the Rwanda block in `configs/config.yaml`. Notebooks that load paths from config will follow automatically.
+
+## Quick start
 
 ### 1. Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/Ayoung9598/voice-ai-intent-classifier.git
 cd voice-ai
 
-# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# Windows: venv\Scripts\activate
+# macOS/Linux: source venv/bin/activate
 
-# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 2. Explore the Data
+### 2. Train (produces `outputs/models/best_model.pt`)
 
 ```bash
-jupyter notebook notebooks/01_eda.ipynb
-```
-
-### 3. Train the Model
-
-```bash
-# Using the training script
 python run_training.py
 
-# Or with custom settings
-python run_training.py --epochs 5 --batch-size 16
+# Quick test
+python run_training.py --epochs 3 --batch-size 16
 ```
 
-### 4. Run Inference
+Trained checkpoints are **not** committed to git; run training locally or upload your `best_model.pt` when using **Google Colab**.
+
+### 3. Notebooks
+
+| Notebook | Purpose |
+|----------|---------|
+| `notebooks/01_eda.ipynb` | Dataset sizes, intent/language/channel distributions, sample utterances |
+| `notebooks/02_training.ipynb` | Training workflow in the notebook |
+| `notebooks/03_evaluation.ipynb` | Load model, metrics, confusion matrix, language-stratified results, confidence / escalation analysis |
+
+Run notebooks from the **`notebooks/`** directory *or* project root; path logic uses `configs/config.yaml` where applicable.
+
+### 4. Inference & API
 
 ```bash
-# Interactive mode
 python run_inference.py --model outputs/models/best_model.pt
 
-# Demo mode (no trained model needed)
 python run_inference.py --demo
 
-# Start API server
 python run_inference.py --serve --model outputs/models/best_model.pt --port 8000
 ```
 
-### 5. API Usage
-
-Once the server is running:
+Example request:
 
 ```bash
-# Health check
-curl http://localhost:8000/health
-
-# Predict intent
 curl -X POST http://localhost:8000/predict \
   -H "Content-Type: application/json" \
-  -d '{"text": "Ndashaka kureba status ya application yanjye."}'
+  -d "{\"text\": \"Mo fe wo ipo ti aplikasiyo mi\"}"
 ```
 
-API documentation available at: `http://localhost:8000/docs`
+API docs: `http://localhost:8000/docs`
 
-## Project Structure
+
+
+## Project structure
 
 ```
 voice-ai/
 ├── configs/
-│   └── config.yaml           # Hyperparameters and settings
-├── datasets/                  # Provided datasets
+│   └── config.yaml           # Data paths, training, inference thresholds
+├── datasets/                  # Nigerian + Rwanda CSVs (see config)
 ├── docs/
-│   └── requirements_analysis.md  # Detailed technical decisions
+│   └── requirements_analysis.md
 ├── notebooks/
-│   ├── 01_eda.ipynb          # Exploratory Data Analysis
-│   └── 02_training.ipynb     # Model training notebook
+│   ├── 01_eda.ipynb
+│   ├── 02_training.ipynb
+│   └── 03_evaluation.ipynb
 ├── outputs/
-│   ├── models/               # Saved model checkpoints
-│   ├── logs/                 # Training logs
-│   └── plots/                # Visualizations
+│   ├── models/               # best_model.pt (after training; gitignored)
+│   ├── logs/
+│   └── plots/
 ├── src/
-│   ├── api/                  # FastAPI application
-│   ├── data/                 # Data loading and preprocessing
-│   ├── evaluation/           # Metrics and error analysis
-│   ├── inference/            # Prediction and confidence handling
-│   └── models/               # Model architecture and training
+│   ├── api/
+│   ├── data/
+│   ├── evaluation/
+│   ├── inference/
+│   └── models/
 ├── requirements.txt
-├── run_training.py           # CLI training script
-└── run_inference.py          # CLI inference script
+├── run_training.py
+└── run_inference.py
 ```
 
-## Technical Approach
+## Technical approach
 
-### Model: XLM-RoBERTa
+### XLM-RoBERTa
 
-- Pre-trained on 100+ languages including low-resource African languages
-- Handles code-switching naturally
-- Good balance between performance and inference latency
+Multilingual encoder suited to low-resource and code-switched text; fine-tuned end-to-end for the 13-way intent head.
 
-### Loss Function: Focal Loss
+### Focal loss
 
-- Addresses class imbalance (13 intents with varying frequencies)
-- Robust to label noise (~3% in dataset)
-- Focuses learning on hard examples
+Reduces dominance of easy/frequent classes and remains useful under mild label noise in the synthetic data.
 
-### Confidence-Based Fallback
+### Confidence-based routing
 
-| Confidence | Action | Description |
-|------------|--------|-------------|
-| ≥ 85% | Execute | Proceed with intent automatically |
-| 60-85% | Confirm | Ask user to confirm intent |
-| < 60% | Escalate | Route to human agent |
+| Confidence | Action |
+|------------|--------|
+| ≥ 0.85 | **Execute** — automate the intent flow |
+| 0.60–0.85 | **Confirm** — ask the user |
+| Under 0.60 | **Escalate** — human handoff |
 
-## Intents Supported (13)
+Thresholds are configurable under `inference.confidence_thresholds` in `configs/config.yaml`.
 
-1. `check_application_status`
-2. `start_new_application`
-3. `requirements_information`
-4. `fees_information`
-5. `appointment_booking`
-6. `payment_help`
-7. `reset_password_login_help`
-8. `speak_to_agent`
-9. `cancel_or_reschedule_appointment`
-10. `update_application_details`
-11. `document_upload_help`
-12. `service_eligibility`
-13. `complaint_or_support_ticket`
+## Intents (13)
 
-## Evaluation
+`check_application_status`, `start_new_application`, `requirements_information`, `fees_information`, `appointment_booking`, `payment_help`, `reset_password_login_help`, `speak_to_agent`, `cancel_or_reschedule_appointment`, `update_application_details`, `document_upload_help`, `service_eligibility`, `complaint_or_support_ticket`
 
-The model is evaluated using:
+## Evaluation metrics
 
-- **Macro F1**: Balanced performance across all intents
-- **Per-Language Accuracy**: Ensures no language is underserved
-- **Expected Calibration Error (ECE)**: Confidence reliability
-- **Confusion Analysis**: Identifies commonly confused intent pairs
+- Accuracy / F1 (macro & weighted)  
+- Per-language (or stratum) accuracy  
+- Expected calibration error (ECE) on confidence  
+- Confusion matrix and error analysis (see `03_evaluation.ipynb`)
 
-## Configuration
-
-Edit `configs/config.yaml` to customize:
+## Configuration snippet
 
 ```yaml
-model:
-  name: "xlm-roberta-base"
-  max_length: 128
-  dropout: 0.1
+data:
+  train_path: "datasets/voiceai_intent_nigerian_train.csv"
+  val_path: "datasets/voiceai_intent_nigerian_val.csv"
+  test_path: "datasets/voiceai_intent_nigerian_test.csv"
 
 training:
   batch_size: 16
   learning_rate: 2.0e-5
-  num_epochs: 10
-  early_stopping_patience: 3
+  num_epochs: 7
+  early_stopping_patience: 2
 
 inference:
   confidence_thresholds:
@@ -172,20 +162,14 @@ inference:
     medium: 0.60
 ```
 
-## Hardware Requirements
+## Hardware
 
-- **Training**: 
-  - GPU recommended (CUDA-compatible)
-  - ~8GB VRAM for batch_size=16
-  - ~30min training on modern GPU
-  
-- **Inference**:
-  - CPU supported (~100-200ms per prediction)
-  - GPU optional (~20-50ms per prediction)
+- **Training:** GPU recommended (~8GB VRAM for batch 16); time depends on epochs and dataset size.  
+- **Inference:** CPU viable (~100–200ms per prediction); GPU optional for lower latency.
 
 ## License
 
-MIT License
+MIT
 
 ## Author
 

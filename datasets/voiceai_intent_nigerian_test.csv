@@ -1,0 +1,81 @@
+utterance_id,timestamp,channel,device_type,region,language,utterance_text,asr_confidence,duration_seconds,intent,split
+utt_ng_d0535401,2026-03-08T14:59:40,mobile_app_voice,feature_phone,Kano,mixed,Mo fe connect to person,0.821,11,speak_to_agent,test
+utt_ng_0ecf0e98,2026-03-12T12:37:40,mobile_app_voice,ios,Ibadan,mixed,Mo want to correct,0.839,8,update_application_details,test
+utt_ng_6b0f87d2,2026-02-25T11:57:40,ivr,web,Delta,mixed,Se mo eligible fun passport?,0.786,7,service_eligibility,test
+utt_ng_ff960c61,2026-03-04T07:07:40,ivr,ios,Kaduna,mixed,Mo fe cancel appointment mi,0.932,5,cancel_or_reschedule_appointment,test
+utt_ng_72228c54,2026-03-11T05:03:40,ivr,android,Ibadan,mixed,Mo want to speak to agent,0.787,4,speak_to_agent,test
+utt_ng_76757287,2026-03-06T13:50:40,ivr,android,Port Harcourt,en,I need help with my payment now please,0.674,5,payment_help,test
+utt_ng_faae6ee9,2026-03-10T05:22:40,mobile_app_voice,feature_phone,Ibadan,mixed,Mo want to speak to agent abeg,0.848,11,speak_to_agent,test
+utt_ng_283bcf56,2026-03-02T15:19:40,ivr,web,Enugu,mixed,Bawo ni mo se le upload document?,0.79,10,document_upload_help,test
+utt_ng_ff7c0e46,2026-03-13T10:04:40,ivr,android,Ibadan,yo,Mo fe bẹrẹ application tuntun,0.707,9,start_new_application,test
+utt_ng_312beacc,2026-02-23T21:57:40,ivr,ios,Oyo,en,My payment is not going through,0.694,3,payment_help,test
+utt_ng_117f14b5,2026-02-24T23:55:40,mobile_app_voice,android,Lagos,en,I need payment assistance,0.873,4,payment_help,test
+utt_ng_2e7d284b,2026-02-18T01:23:40,ivr,ios,Lagos,mixed,Se mo can get service?,0.887,6,service_eligibility,test
+utt_ng_f0869d17,2026-02-22T11:55:40,mobile_app_voice,ios,Oyo,yo,Status ti application mi ni kini?,0.907,6,check_application_status,test
+utt_ng_7e0c5010,2026-02-26T19:39:40,voice_call,android,Abuja,en,How much does it cost?,0.79,3,fees_information,test
+utt_ng_c869189c,2026-02-26T18:46:40,mobile_app_voice,ios,Rivers,en,How much is it?,0.868,7,fees_information,test
+utt_ng_f2fb8c28,2026-02-25T10:29:40,whatsapp_voice_note,ios,Kano,mixed,Mo fe mọ se mo qualify o,0.937,6,service_eligibility,test
+utt_ng_08a955ac,2026-02-23T13:58:40,whatsapp_voice_note,feature_phone,Ibadan,en,Book me an appointment,0.738,11,appointment_booking,test
+utt_ng_e4c9958a,2026-02-24T06:08:40,voice_call,android,Abuja,en,I need to make an appointment,0.841,6,appointment_booking,test
+utt_ng_a340b068,2026-02-25T02:49:40,mobile_app_voice,feature_phone,Delta,mixed,Am I eligible?,0.699,3,service_eligibility,test
+utt_ng_dcc08226,2026-03-03T23:40:40,mobile_app_voice,web,Abuja,mixed,Mo want to cancel,0.839,5,cancel_or_reschedule_appointment,test
+utt_ng_41451f19,2026-02-15T09:09:40,ivr,ios,Lagos,yo,Bawo ni awọn dokumẹnti ti mo nilo?,0.765,12,requirements_information,test
+utt_ng_2cd5b9d9,2026-02-19T10:37:40,whatsapp_voice_note,web,Lagos,mixed,Upload ko work,0.77,9,document_upload_help,test
+utt_ng_6883c2a7,2026-02-22T10:00:40,whatsapp_voice_note,ios,Abuja,en,I'm having payment issues,0.721,3,payment_help,test
+utt_ng_aafe1f08,2026-03-07T17:06:40,ivr,android,Kano,en,Help me reset my password,0.848,3,reset_password_login_help,test
+utt_ng_c4ddcc23,2026-02-16T06:27:40,ivr,android,Enugu,mixed,Mo have issue,0.766,12,complaint_or_support_ticket,test
+utt_ng_b194920e,2026-03-04T06:53:40,voice_call,android,Kaduna,mixed,Mo want to speak to agent,0.676,4,speak_to_agent,test
+utt_ng_031b2882,2026-03-14T14:05:40,voice_call,web,Kaduna,mixed,Mo have problem pẹlu uplod,0.666,3,document_upload_help,test
+utt_ng_78e55874,2026-02-24T08:24:40,whatsapp_voice_note,android,Ibadan,en,Can I book an appointment?,0.726,10,appointment_booking,test
+utt_ng_a56337e5,2026-03-08T08:40:40,whatsapp_voice_note,android,Enugu,mixed,Mo fe report problem,0.684,3,complaint_or_support_ticket,test
+utt_ng_fb69813d,2026-02-25T07:56:40,whatsapp_voice_note,feature_phone,Lagos,mixed,Mo want to report,0.901,6,complaint_or_support_ticket,test
+utt_ng_cb9ed149,2026-03-02T04:03:40,whatsapp_voice_note,feature_phone,Delta,mixed,Mo have issue,0.774,12,complaint_or_support_ticket,test
+utt_ng_bcb56b0c,2026-02-28T09:49:40,mobile_app_voice,web,Kaduna,mixed,Upload mi ko work,0.95,5,document_upload_help,test
+utt_ng_8c012655,2026-02-13T11:36:40,ivr,android,Enugu,en,Can I speak to someone?,0.795,9,speak_to_agent,test
+utt_ng_89cf1552,2026-02-25T21:30:40,mobile_app_voice,feature_phone,Lagos,en,Can't log in,0.907,5,reset_password_login_help,test
+utt_ng_88de2916,2026-02-14T04:03:40,ivr,web,Kano,yo,Mo fe mọ awọn requirements,0.666,3,requirements_information,test
+utt_ng_1d0fd2c5,2026-03-11T18:42:40,mobile_app_voice,android,Ibadan,yo,Mo need to start application,0.932,9,start_new_application,test
+utt_ng_652eb993,2026-03-11T14:25:40,ivr,ios,Kaduna,mixed,Mo want to correct,0.844,8,update_application_details,test
+utt_ng_1226b44d,2026-03-05T16:26:40,mobile_app_voice,ios,Abuja,en,Book appointment for me,0.704,6,appointment_booking,test
+utt_ng_8d7bae50,2026-02-26T19:20:40,voice_call,android,Abuja,mixed,Mo fe make complaint,0.686,6,complaint_or_support_ticket,test
+utt_ng_17337961,2026-02-19T06:28:40,whatsapp_voice_note,web,Abuja,mixed,Mo have problem pẹlu upoad o,0.743,4,document_upload_help,test
+utt_ng_6b61ca94,2026-02-22T23:23:40,mobile_app_voice,feature_phone,Oyo,en,My payment is not going through,0.765,7,payment_help,test
+utt_ng_d9ed8f50,2026-03-14T23:34:40,mobile_app_voice,web,Rivers,mixed,Mo want to correct,0.86,10,update_application_details,test
+utt_ng_1c81c431,2026-02-15T12:44:40,whatsapp_voice_note,ios,Kaduna,mixed,Mo fe connect to person,0.915,3,speak_to_agent,test
+utt_ng_821567ba,2026-02-17T02:03:40,ivr,ios,Oyo,mixed,Mo fe correct mistake mi,0.743,11,update_application_details,test
+utt_ng_adf8ca22,2026-02-25T04:21:40,voice_call,android,Kaduna,yo,Mo fe start application tuntun,0.78,5,start_new_application,test
+utt_ng_0bf61fb4,2026-02-26T18:31:40,voice_call,ios,Oyo,en,Payment not working,0.757,8,payment_help,test
+utt_ng_6b53cf18,2026-02-26T22:29:40,whatsapp_voice_note,android,Delta,yo,"Ehen, Kini awọn dokumẹnti ti mo nilo?",0.913,5,requirements_information,test
+utt_ng_c58bc0a7,2026-03-07T04:26:40,ivr,feature_phone,Port Harcourt,yo,"Ehen, Kini awọn nkan ti mo nilo fun passport?",0.769,10,requirements_information,test
+utt_ng_d34a2a05,2026-03-13T00:24:40,ivr,android,Oyo,mixed,Mo fe help to upload o,0.674,8,document_upload_help,test
+utt_ng_34563877,2026-03-10T15:21:40,mobile_app_voice,web,Abuja,mixed,Mo fe start application fun driving license,0.724,9,start_new_application,test
+utt_ng_ee3367f7,2026-03-01T11:51:40,mobile_app_voice,android,Kaduna,mixed,Mo fe speak to person,0.791,7,speak_to_agent,test
+utt_ng_55e6e004,2026-03-02T15:34:40,mobile_app_voice,ios,Ibadan,en,Pay problem,0.827,10,payment_help,test
+utt_ng_aea71837,2026-03-04T14:49:40,whatsapp_voice_note,ios,Rivers,en,Can't log in o,0.799,5,reset_password_login_help,test
+utt_ng_bd551d2f,2026-02-26T05:33:40,mobile_app_voice,ios,Delta,en,How much is it!,0.684,12,fees_information,test
+utt_ng_987c9896,2026-03-14T07:26:40,whatsapp_voice_note,web,Enugu,en,I forgot passwrd,0.663,12,reset_password_login_help,test
+utt_ng_79dae37a,2026-03-05T05:44:40,voice_call,feature_phone,Rivers,en,I want to talk to a person,0.822,10,speak_to_agent,test
+utt_ng_963b7142,2026-02-19T20:04:40,voice_call,ios,Port Harcourt,mixed,Mo need to update now,0.811,11,update_application_details,test
+utt_ng_a950f036,2026-02-23T21:42:40,voice_call,ios,Ibadan,mixed,Mo need to reschedule,0.73,3,cancel_or_reschedule_appointment,test
+utt_ng_edff0092,2026-02-16T08:28:40,voice_call,android,Kaduna,mixed,Mo fe update details mi,0.906,10,update_application_details,test
+utt_ng_eb23ea23,2026-03-07T20:57:40,whatsapp_voice_note,feature_phone,Kaduna,en,I forgot my password,0.942,8,reset_password_login_help,test
+utt_ng_56e329bd,2026-02-14T06:16:40,whatsapp_voice_note,feature_phone,Oyo,mixed,Mo want to report,0.73,11,complaint_or_support_ticket,test
+utt_ng_1be6a148,2026-02-17T13:52:40,mobile_app_voice,web,Abuja,en,I need to reset my password,0.701,7,reset_password_login_help,test
+utt_ng_937eaa7e,2026-02-14T10:51:40,ivr,feature_phone,Port Harcourt,mixed,Mo fe change appointment mi,0.925,11,cancel_or_reschedule_appointment,test
+utt_ng_64edd046,2026-02-25T16:35:40,voice_call,feature_phone,Enugu,yo,Bawo ni awọn dokumẹnti ti mo nilo? help me,0.763,4,requirements_information,test
+utt_ng_84e9e1f0,2026-02-20T05:54:40,whatsapp_voice_note,android,Lagos,yo,Mo fe bẹrẹ aplikasiyo fun ID card,0.828,8,start_new_application,test
+utt_ng_ddf127f7,2026-02-26T07:04:40,mobile_app_voice,web,Rivers,en,I cannot access my account,0.761,10,reset_password_login_help,test
+utt_ng_deeb8854,2026-02-27T17:05:40,whatsapp_voice_note,android,Delta,yo,Status ti application mi ni kini?,0.908,4,check_application_status,test
+utt_ng_f617316c,2026-03-09T10:21:40,mobile_app_voice,ios,Ibadan,mixed,Se mo eligible fun passport?,0.854,9,service_eligibility,test
+utt_ng_f841abb5,2026-02-16T15:45:40,whatsapp_voice_note,android,Oyo,mixed,Mo need to reschedule,0.705,4,cancel_or_reschedule_appointment,test
+utt_ng_480e5b62,2026-02-23T08:15:40,voice_call,android,Ibadan,en,Book appointment for me,0.721,11,appointment_booking,test
+utt_ng_28d8d303,2026-02-27T23:16:40,whatsapp_voice_note,feature_phone,Rivers,mixed,Mo want to report,0.656,9,complaint_or_support_ticket,test
+utt_ng_a35a724a,2026-02-13T22:22:40,voice_call,feature_phone,Enugu,en,Let me speak to agent,0.654,12,speak_to_agent,test
+utt_ng_55b7646b,2026-03-12T14:50:40,ivr,feature_phone,Enugu,en,Book me an appointment,0.918,5,appointment_booking,test
+utt_ng_2d417473,2026-03-14T16:18:40,mobile_app_voice,web,Port Harcourt,mixed,Mo have issue,0.925,11,complaint_or_support_ticket,test
+utt_ng_7cfe6eb8,2026-02-20T18:32:40,voice_call,android,Oyo,mixed,Se mo le apply?,0.862,6,service_eligibility,test
+utt_ng_f6f5a594,2026-02-28T03:16:40,mobile_app_voice,ios,Delta,en,How much do I need to pay?,0.745,12,fees_information,test
+utt_ng_33c74c6e,2026-02-26T06:11:40,ivr,web,Rivers,yo,Mo fe apply fun passport,0.829,6,start_new_application,test
+utt_ng_0ebd6667,2026-02-22T03:01:40,ivr,ios,Ibadan,yo,Ipo ti mo submit ni kini?,0.688,8,check_application_status,test
+utt_ng_7693a4f4,2026-02-13T01:08:40,whatsapp_voice_note,ios,Port Harcourt,yo,Elo ni owo fun ID card?,0.706,5,fees_information,test
+utt_ng_d0c7efa4,2026-03-02T02:51:40,voice_call,ios,Port Harcourt,mixed,Mo fe help to upload,0.712,11,document_upload_help,test

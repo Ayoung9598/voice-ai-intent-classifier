@@ -18,6 +18,8 @@ ML_Take_Home.txt
 
 docs/
 
+
+
 # Logs
 outputs/logs/
 
@@ -34,6 +36,10 @@ outputs/logs/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Local archives
+scripts/
+voice-ai.zip.zip
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
